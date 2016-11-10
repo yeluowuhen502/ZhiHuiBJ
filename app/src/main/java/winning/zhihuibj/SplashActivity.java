@@ -11,9 +11,12 @@ import android.view.animation.RotateAnimation;
 import android.view.animation.ScaleAnimation;
 
 import winning.zhihuibj.databinding.ActivitySplashBinding;
+import winning.zhihuibj.utils.CacheUtils;
+import winning.zhihuibj.utils.CommonUtil;
 
 public class SplashActivity extends AppCompatActivity {
     private ActivitySplashBinding binding;
+    private String IS_APP_FIRST_OPEN = "is_app_first_open";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,5 +43,28 @@ public class SplashActivity extends AppCompatActivity {
 
         binding.rlSplash.startAnimation(animationSet);
 
+        animationSet.setAnimationListener(new Animation.AnimationListener() {
+            @Override
+            public void onAnimationStart(Animation animation) {
+
+            }
+
+            @Override
+            public void onAnimationEnd(Animation animation) {
+                //动画结束用来判断的
+                boolean isAppFirstOpen = CacheUtils.getBoolean(SplashActivity.this,IS_APP_FIRST_OPEN,true);
+                if(isAppFirstOpen){
+                    CommonUtil.showToast(SplashActivity.this,"进入引导页");
+                }else{
+                    CommonUtil.showToast(SplashActivity.this,"进入主页");
+                }
+            }
+
+            @Override
+            public void onAnimationRepeat(Animation animation) {
+
+            }
+        });
     }
+
 }
