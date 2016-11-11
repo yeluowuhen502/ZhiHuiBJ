@@ -11,6 +11,7 @@ import android.content.SharedPreferences;
 public class CacheUtils {
     private static String FILE_NAME = "zhbj";
     private static SharedPreferences sp;
+    public static String IS_APP_FIRST_OPEN = "is_app_first_open";
 
     public static void setBoolean(Context context, String key, boolean value) {
         sp = context.getSharedPreferences(FILE_NAME, Context.MODE_PRIVATE);
