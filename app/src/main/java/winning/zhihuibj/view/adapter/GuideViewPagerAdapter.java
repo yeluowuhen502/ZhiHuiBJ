@@ -27,7 +27,8 @@ public class GuideViewPagerAdapter extends PagerAdapter {
 
     @Override
     public Object instantiateItem(ViewGroup container, int position) {
-        ImageView img = imgViews.get(position);
+        ImageView img = new ImageView(mContext);
+        img.setAlpha(0);
         container.addView(img);
         return img;
     }

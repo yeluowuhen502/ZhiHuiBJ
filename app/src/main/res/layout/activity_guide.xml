@@ -17,22 +17,45 @@
 
         <android.support.v4.view.ViewPager
             android:id="@+id/viewPager"
-            android:background="@color/colorAccent"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"></android.support.v4.view.ViewPager>
+            android:layout_height="match_parent"
+            android:background="@color/colorAccent"></android.support.v4.view.ViewPager>
 
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/iv_img_3"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@mipmap/guide_3"/>
+
+            <ImageView
+                android:id="@+id/iv_img_2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@mipmap/guide_2"/>
+
+            <ImageView
+                android:id="@+id/iv_img_1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@mipmap/guide_1"/>
+
+        </FrameLayout>
 
         <Button
             android:id="@+id/btn_start"
-            android:visibility="invisible"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="30dp"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
+            android:layout_marginBottom="30dp"
             android:background="@drawable/button_red_normal"
+            android:text="   开始使用   "
             android:textColor="@android:color/white"
-            android:text="   开始使用   "/>
+            android:visibility="invisible"/>
 
         <com.rd.PageIndicatorView
             android:id="@+id/pageIndicatorView"
@@ -41,6 +64,7 @@
             android:layout_above="@id/btn_start"
             android:layout_centerHorizontal="true"
             android:layout_marginBottom="20dp"
+            attrs:piv_animationType="scale"
             attrs:piv_viewPager="@id/viewPager"/>
     </RelativeLayout>
 </layout>

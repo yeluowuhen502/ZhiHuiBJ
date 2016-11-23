@@ -3,7 +3,10 @@ package winning.zhihuibj;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.KeyEvent;
+import android.view.Window;
+import android.view.WindowManager;
 
 import com.jeremyfeinstein.slidingmenu.lib.app.SlidingActivity;
 
@@ -14,13 +17,14 @@ import winning.zhihuibj.utils.MyApplicationUtil;
  * Created by Jiang on 2016/10/28.
  */
 
-public class ZHBJBaseActivity extends Activity {
+public class ZHBJBaseActivity extends AppCompatActivity {
     private Activity mActivity;
     public ForResultCallBack forResultCallBack;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         mActivity = this;
     }
 

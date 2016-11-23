@@ -248,7 +248,7 @@ public class SlidingMenu extends RelativeLayout {
                 double scalePercentage = (positionOffsetPixels * 1.0 / (deviceDistance - distance) * 1.0) * (-1);
                 mOnScaleListenet.onScale(scalePercentage);
                 //获得了百分比
-               // Log.d("slidingtest", scalePercentage + ",,," + deviceDistance + "," + positionOffset + "" + "mmm" + positionOffsetPixels + "");
+                //Log.d("slidingtest", scalePercentage + ",,," + deviceDistance + "," + positionOffset + "" + "mmm" + positionOffsetPixels + "");
             }
 
             public void onPageSelected(int position) {

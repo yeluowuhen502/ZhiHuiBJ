@@ -6,6 +6,8 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
 
@@ -21,6 +23,7 @@ import winning.zhihuibj.view.adapter.GuideViewPagerAdapter;
 
 public class GuideActivity extends ZHBJBaseActivity {
     private ActivityGuideBinding binding;
+    private int preItem = 0;
     //图片
     private ArrayList<ImageView> imgViews;
     private int[] imgs = new int[]{
@@ -34,6 +37,8 @@ public class GuideActivity extends ZHBJBaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        this.requestWindowFeature(Window.FEATURE_NO_TITLE);//去掉标题栏
+        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);//去掉信息栏
 //        setContentView(R.layout.activity_guide);
         binding = DataBindingUtil.setContentView(GuideActivity.this, R.layout.activity_guide);
         initData();
@@ -42,7 +47,7 @@ public class GuideActivity extends ZHBJBaseActivity {
 
     private void initViews() {
 //        btn = (Button) findViewById(R.id.btn_start);
-        binding.pageIndicatorView.setAnimationType(AnimationType.SCALE);
+        //binding.pageIndicatorView.setAnimationType(AnimationType.SCALE);
         binding.pageIndicatorView.setAnimationDuration(100);
         binding.viewPager.setAdapter(new GuideViewPagerAdapter(GuideActivity.this, imgViews, btn));
         binding.pageIndicatorView.setSelectedColor(Color.parseColor("#ff0000"));
@@ -53,8 +58,8 @@ public class GuideActivity extends ZHBJBaseActivity {
         binding.btnStart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                CacheUtils.setBoolean(GuideActivity.this,CacheUtils.IS_APP_FIRST_OPEN,false);
-                startMyActivity(MainActivity.class,null);
+                CacheUtils.setBoolean(GuideActivity.this, CacheUtils.IS_APP_FIRST_OPEN, false);
+                startMyActivity(MainActivity.class, null);
                 finish();
             }
         });
@@ -62,6 +67,14 @@ public class GuideActivity extends ZHBJBaseActivity {
         binding.viewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+//                LogUtil.d("scroll", positionOffset + "------>" + positionOffsetPixels);
+                if(position == 0){
+                    binding.ivImg1.setAlpha(1 - positionOffset);
+                }else if(position == 1){
+                    binding.ivImg2.setAlpha(1 - positionOffset);
+                }else if(position == 2){
+                    binding.ivImg3.setAlpha(1 - positionOffset);
+                }
 
             }
 
@@ -75,11 +88,29 @@ public class GuideActivity extends ZHBJBaseActivity {
                     binding.btnStart.setVisibility(View.VISIBLE);
                 }
 
+
+                if (position == preItem) {
+                    //不作处理
+                    LogUtil.d("scroll", "没有移动");
+                    return;
+                }
+                if (position > preItem) {
+                    //从左向右滑
+                    LogUtil.d("scroll", "从左向右滑");
+                    preItem = position;
+                    return;
+                }
+                if (position < preItem) {
+                    //从右向左滑
+                    LogUtil.d("scroll", "从右向左滑");
+                    preItem = position;
+                    return;
+                }
             }
 
             @Override
             public void onPageScrollStateChanged(int state) {
-
+//                LogUtil.d("scroll", state + "------>");
             }
         });
     }
@@ -89,7 +120,7 @@ public class GuideActivity extends ZHBJBaseActivity {
         imgViews = new ArrayList<ImageView>();
         for (int i = 0; i < imgs.length; i++) {
             ImageView imv = new ImageView(this);
-            imv.setBackgroundResource(imgs[i]);
+            imv.setAlpha(0);
             imgViews.add(imv);
         }
     }

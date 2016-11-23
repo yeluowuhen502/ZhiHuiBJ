@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/TestHintTest/TestHintTest.iml" filepath="$PROJECT_DIR$/TestHintTest/TestHintTest.iml" />
       <module fileurl="file://$PROJECT_DIR$/ZhiHuiBJ.iml" filepath="$PROJECT_DIR$/ZhiHuiBJ.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/slidingmenulibrary/slidingmenulibrary.iml" filepath="$PROJECT_DIR$/slidingmenulibrary/slidingmenulibrary.iml" />
