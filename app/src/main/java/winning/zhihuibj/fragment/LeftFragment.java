@@ -9,17 +9,24 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import winning.zhihuibj.Base.BaseFragment;
+
 /**
  * Created by Jiang on 2016/11/10.
  */
 
-public class LeftFragment extends Fragment {
+public class LeftFragment extends BaseFragment {
 
-    @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+    protected View initView() {
         TextView tv = new TextView(getActivity());
         tv.setText("左侧菜单");
         return tv;
     }
+
+    @Override
+    protected void initData() {
+
+    }
+
 }
