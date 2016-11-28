@@ -38,7 +38,7 @@ public class MyPagerAdapter extends PagerAdapter {
         BasePager pager = pagers.get(position);
         container.addView(pager.rootView);
         //初始化数据
-        pager.initData();
+//        pager.initData();
         return pager.rootView;
     }
 

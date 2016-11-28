@@ -36,6 +36,7 @@ public class ContentFragment extends BaseFragment {
         View view = View.inflate(mActivity, R.layout.content_fragment_layout, null);
         mViewPager = (ViewPager) view.findViewById(R.id.vp_content);
         rg_bt_bg = (RadioGroup) view.findViewById(R.id.rg_bt_bg);
+
         rg_bt_bg.check(R.id.rb_home);
         enableSlidingMenu(false);
         //RadioGroup的选中监听
@@ -75,7 +76,7 @@ public class ContentFragment extends BaseFragment {
 
             @Override
             public void onPageSelected(int position) {
-               // pagers.get(position).initData();
+                pagers.get(position).initData();
             }
 
             @Override
@@ -98,7 +99,7 @@ public class ContentFragment extends BaseFragment {
         pagers.add(new SettingsPager(mActivity));
         //设置一下适配器
         mViewPager.setAdapter(new MyPagerAdapter(pagers));
-
+        pagers.get(0).initData();
     }
     //是否可以打开SlidingMenu的触发事件
     protected void enableSlidingMenu(boolean flag){

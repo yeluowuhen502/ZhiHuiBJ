@@ -32,4 +32,5 @@ dependencies {
     testCompile 'junit:junit:4.12'
     compile files('libs/gson-2.2.1.jar')
     compile project(':slidingmenulibrary')
+    compile files('libs/httpclient-4.2.5.jar')
 }
