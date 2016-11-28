@@ -21,7 +21,7 @@ public class SettingsPager extends BasePager {
     @Override
     public void initData() {
         tv_basepager_title.setText("设置");
-        //按钮消失
+        //按钮消失处理
         ib_basepager_menu.setVisibility(View.GONE);
         TextView tv = new TextView(mContext);
         tv.setText("设置");
