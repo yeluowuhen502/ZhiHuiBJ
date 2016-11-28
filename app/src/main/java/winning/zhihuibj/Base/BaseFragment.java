@@ -19,7 +19,7 @@ public abstract class BaseFragment extends Fragment {
     //初始化数据
     protected abstract void initData();
 
-    private Activity mActivity;
+    protected Activity mActivity;
 
     @Nullable
     @Override
