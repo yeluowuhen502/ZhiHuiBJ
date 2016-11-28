@@ -21,6 +21,7 @@ public class SettingsPager extends BasePager {
     @Override
     public void initData() {
         tv_basepager_title.setText("设置");
+        //按钮消失
         ib_basepager_menu.setVisibility(View.GONE);
         TextView tv = new TextView(mContext);
         tv.setText("设置");
@@ -28,6 +29,5 @@ public class SettingsPager extends BasePager {
         tv.setTextColor(Color.RED);
         fl_basepager_content.removeAllViews();
         fl_basepager_content.addView(tv);
-
     }
 }
