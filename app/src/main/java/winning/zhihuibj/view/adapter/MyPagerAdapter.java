@@ -37,6 +37,8 @@ public class MyPagerAdapter extends PagerAdapter {
     public Object instantiateItem(ViewGroup container, int position) {
         BasePager pager = pagers.get(position);
         container.addView(pager.rootView);
+        //初始化数据
+        pager.initData();
         return pager.rootView;
     }
 

@@ -51,6 +51,7 @@ public class MainActivity extends AppCompatActivity {
         slidingMenu.setMode(SlidingMenu.LEFT);
         slidingMenu.setMenu(R.layout.left_layout);
         slidingMenu.setDeviceDistance(DeviceUtil.getMetricsWidth(MainActivity.this));
+        MyApplicationUtil.putSlidingMenuMap(slidingMenu);
         slidingMenu.setOnScaleListenet(new SlidingMenu.OnScaleListenet() {
             @Override
             public void onScale(double scale) {

@@ -5,12 +5,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.KeyEvent;
-import android.view.Window;
-import android.view.WindowManager;
-
-import com.jeremyfeinstein.slidingmenu.lib.app.SlidingActivity;
-
-import winning.zhihuibj.utils.MyApplicationUtil;
 
 
 /**
