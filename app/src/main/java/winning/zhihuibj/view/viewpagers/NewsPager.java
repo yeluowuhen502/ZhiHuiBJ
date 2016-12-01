@@ -13,6 +13,7 @@ import com.lidroid.xutils.http.callback.RequestCallBack;
 import com.lidroid.xutils.http.client.HttpRequest;
 
 import winning.zhihuibj.Base.BasePager;
+import winning.zhihuibj.utils.CommonUtil;
 import winning.zhihuibj.utils.ConstantUtils;
 
 /**
@@ -41,6 +42,7 @@ public class NewsPager extends BasePager {
     //从服务端获取数据
     public void getDataFromServer() {
         HttpUtils httpUtils = new HttpUtils();
+        String url = ConstantUtils.NEWSCENTER_URL;
         httpUtils.send(HttpRequest.HttpMethod.GET, ConstantUtils.NEWSCENTER_URL, new RequestCallBack<String>() {
             @Override
             public void onSuccess(ResponseInfo<String> info) {
@@ -49,7 +51,7 @@ public class NewsPager extends BasePager {
 
             @Override
             public void onFailure(HttpException e, String s) {
-                String string = s;
+                CommonUtil.showToast(mContext,s);
             }
         });
     }
